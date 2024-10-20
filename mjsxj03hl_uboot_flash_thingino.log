@@ -1,0 +1,32 @@
+isvp_t31# mmc rescan
+isvp_t31# mmcinfo
+Device: msc
+Manufacturer ID: 3
+OEM: 5344
+Name: SD64G
+Tran Speed: 50000000
+Rd Block Len: 512
+SD version 3.0
+High Capacity: Yes
+Capacity: 59.5 GiB
+Bus Width: 4-bit
+isvp_t31# fatls mmc 0
+        0   autoupdate-full.bin
+
+1 file(s), 0 dir(s)
+                                                                                                                                                                                                                                              isvp_t31# setenv flashsize 0x1000000 | Minicom 2.8 | VT102 | Offline | ttyUSB0                                                                                                                                                                isvp_t31# setenv baseaddr 0x82000000
+isvp_t31# mw.b ${baseaddr} 0xff ${flashsize}
+isvp_t31# fatload mmc 0:1 ${baseaddr} autoupdate-full.bin
+reading autoupdate-full.bin
+isvp_t31# sf probe 0
+the manufacturer 5e
+SF: Detected ZB25VQ128
+
+--->probe spend 4 ms
+isvp_t31# sf erase 0x0 ${flashsize}
+SF: 16777216 bytes @ 0x0 Erased: OK
+--->erase spend 21727 ms
+isvp_t31# sf write ${baseaddr} 0x0 ${flashsize}
+SF: 16777216 bytes @ 0x0 Written: OK
+--->write spend 6563 ms
+isvp_t31# reset

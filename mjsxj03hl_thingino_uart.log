@@ -1,0 +1,320 @@
+U-Boot SPL 2013.07-g8581847-dirty (Aug 09 2021 - 18:07:12)
+Timer init
+CLK stop
+PLL init
+pll_init:366
+pll_cfg.pdiv = 10, pll_cfg.h2div = 5, pll_cfg.h0div = 5, pll_cfg.cdiv = 1, pll_cfg.l2div = 2
+nf=84 nr = 1 od0 = 1 od1 = 2
+cppcr is 05405100
+CPM_CPAPCR 0540510d
+nf=100 nr = 1 od0 = 1 od1 = 2
+cppcr is 06405100
+CPM_CPMPCR 0640510d
+nf=100 nr = 1 od0 = 1 od1 = 2
+cppcr is 06405100
+CPM_CPVPCR 0640510d
+cppcr 0x9a7b5510
+apll_freq 1008000000
+mpll_freq 1200000000
+vpll_freq = 1200000000
+ddr sel mpll, cpu sel apll
+ddrfreq 600000000
+cclk  1008000000
+l2clk 504000000
+h0clk 240000000
+h2clk 240000000
+pclk  120000000
+CLK init
+SDRAM init
+sdram init start
+ddr_inno_phy_init ..!
+phy reg = 0x00000007, CL = 0x00000007
+ddr_inno_phy_init ..! 11:  00000004
+ddr_inno_phy_init ..! 22:  00000006
+ddr_inno_phy_init ..! 33:  00000006
+REG_DDR_LMR: 00000210
+REG_DDR_LMR: 00000310
+REG_DDR_LMR: 00000110
+REG_DDR_LMR, MR0: 00f73011
+T31_0x5: 00000007
+T31_0x15: 0000000c
+T31_0x4: 00000000
+T31_0x14: 00000002
+INNO_TRAINING_CTRL 1: 00000000
+INNO_TRAINING_CTRL 2: 000000a1
+T31_cc: 00000003
+INNO_TRAINING_CTRL 3: 000000a0
+T31_118: 0000003c
+T31_158: 0000003c
+T31_190: 00000020
+T31_194: 0000001e
+jz-04 :  0x00000051
+jz-08 :  0x000000a0
+jz-28 :  0x00000024
+DDR PHY init OK
+INNO_DQ_WIDTH   :00000003
+INNO_PLL_FBDIV  :00000014
+INNO_PLL_PDIV   :00000005
+INNO_MEM_CFG    :00000051
+INNO_PLL_CTRL   :00000018
+INNO_CHANNEL_EN :0000000d
+INNO_CWL        :00000006
+INNO_CL         :00000007
+DDR Controller init
+DDRC_STATUS         0x80000001
+DDRC_CFG            0x0a288a40
+DDRC_CTRL           0x0000011c
+DDRC_LMR            0x00400008
+DDRC_DLP            0x00000000
+DDRC_TIMING1        0x050f0a06
+DDRC_TIMING2        0x021c0807
+DDRC_TIMING3        0x20080723
+DDRC_TIMING4        0x1f240031
+DDRC_TIMING5        0xff060405
+DDRC_TIMING6        0x321c0505
+DDRC_REFCNT         0x00918e03
+DDRC_MMAP0          0x000020fc
+DDRC_MMAP1          0x00002400
+DDRC_REMAP1         0x03020d0c
+DDRC_REMAP2         0x07060504
+DDRC_REMAP3         0x0b0a0908
+DDRC_REMAP4         0x0f0e0100
+DDRC_REMAP5         0x13121110
+DDRC_AUTOSR_EN      0x00000000
+sdram init finished
+SDRAM init ok
+board_init_r
+image entry point: 0x80100000
+
+
+Ingenic U-Boot Flex 2013.07 (Oct 13 2024 - 17:27:30)
+
+Platform: ISVP (Ingenic XBurst1)
+Built profile: T31L
+SOC Name: Unknown
+DRAM:  64 MiB
+Top of RAM usable for U-Boot at: 84000000
+Reserving 471k for U-Boot at: 83f88000
+Reserving 32832k for malloc() at: 81f78000
+Reserving 32 Bytes for Board Info at: 81f77fe0
+Reserving 124 Bytes for Global Data at: 81f77f64
+Reserving 256k for boot params() at: 81f37f64
+Stack Pointer at: 81f37f48
+Now running in RAM - U-Boot at: 83f88000
+
+MMC:   msc: 0
+JZ SFC: Flash chip ID: 5e4018
+SF:    Detected ZB25VQ128 (5e 40 18 5e ff)
+Net:   HW address for ETH: 02:CB:5C:74:4D:21
+Net:   HW address for WLAN: 02:CB:5C:74:4D:22
+In:    serial
+Out:   serial
+Err:   serial
+GPIO:  gpio_button: 51i
+GPIO:  gpio_default: 25id 26iud
+Net:   Network disabled
+GPIO:  gpio_default_net: 39o
+GPIO:  gpio_mmc_power: No GPIO env settings provided
+GPIO:  gpio_ircut: 50i 49iud
+GPIO:  gpio_user: No GPIO env settings provided
+GPIO:  gpio_motor_v: No GPIO env settings provided
+GPIO:  gpio_motor_h: No GPIO env settings provided
+MMC:   Checking for autoupdate files...
+reading autoupdate-full.done
+reading autoupdate-uboot.bin
+reading autoupdate-full.bin
+MMC:   Checking for kernel image from MMC...
+reading factory_t31_kernel
+reading factory_t31_ZMC6tiIDQN
+reading factory_ZMC6tiIDQN
+MMC:   Kernel file not found.
+MMC:   Checking for boot/env files...
+reading boot.scr
+** Unable to read file boot.scr **
+reading uEnv.txt
+** Unable to read file uEnv.txt **
+KEY:   ###### Press Ctrl-C now to interrupt boot... loading in 3s ######
+JZ SFC: Flash chip ID: 5e4018
+SF:    Detected ZB25VQ128 (5e 40 18 5e 4d)
+SF:    probe command completed in 6ms
+SQ:    Kernel start detected at address 0x50000
+SQ:    SquashFS start detected at address 0x1B0000
+SQ:    Overlay start set to address 0x790000
+SQ:    SquashFS processing complete.
+SF:    2424832 bytes @ 0x50000 Read: OK
+SF:    read command completed in 651ms
+## Booting kernel from Legacy Image at 0x80600000 ...
+   Image Name:   Linux-3.10.14__isvp_swan_1.0__
+   Image Type:   MIPS Linux Kernel Image (lzma compressed)
+   Data Size:    1391411 Bytes = 1.3 MiB
+   Load Address: 80010000
+   Entry Point:  8035e050
+   Verifying Checksum ... OK
+   Uncompressing Kernel Image ... OK
+
+Starting kernel ...
+
+Linux version 3.10.14__isvp_swan_1.0__ (buildroot@buildroot) (buildroot-gcc-14.2.0) #1 PREEMPT Sun Oct 13 17:27:30 UTC 2024
+CPU0 RESET ERROR PC:08C1129D
+CPU0 revision is: 00d00100 (Ingenic Xburst)
+FPU revision is: 00b70000
+CCLK:1008MHz L2CLK:504Mhz H0CLK:200MHz H2CLK:200Mhz PCLK:100Mhz
+Determined physical RAM map:
+ memory: 003f6000 @ 00010000 (usable)
+ memory: 0003a000 @ 00406000 (usable after init)
+User-defined physical RAM map:
+ memory: 02000000 @ 00000000 (usable)
+Zone ranges:
+  Normal   [mem 0x00000000-0x01ffffff]
+Movable zone start for each node
+Early memory node ranges
+  node   0: [mem 0x00000000-0x01ffffff]
+Primary instruction cache 32kB, 8-way, VIPT, linesize 32 bytes.
+Primary data cache 32kB, 8-way, VIPT, no aliases, linesize 32 bytes
+pls check processor_id[0x00d00100],sc_jz not support!
+MIPS secondary cache 128kB, 8-way, linesize 32 bytes.
+Built 1 zonelists in Zone order, mobility grouping off.  Total pages: 8128
+Kernel command line: mem=32M@0x0 rmem=32M@0x2000000 console=ttyS1,115200n8 panic=10 root=/dev/mtdblock3 rootfstype=squashfs init=/init mtdparts=jz_sfc:256k(boot),64k(env),1408k(kernel),6016k(rootfs),-(rootfs_data),16064k@0x50000(upgrade))
+PID hash table entries: 128 (order: -3, 512 bytes)
+Dentry cache hash table entries: 4096 (order: 2, 16384 bytes)
+Inode-cache hash table entries: 2048 (order: 1, 8192 bytes)
+Memory: 27440k/32768k available (3425k kernel code, 5328k reserved, 627k data, 232k init, 0k highmem)
+SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+Preemptible hierarchical RCU implementation.
+        Dump stacks of tasks blocking RCU-preempt GP.
+NR_IRQS:358
+clockevents_config_and_register success.
+Calibrating delay loop... 1001.88 BogoMIPS (lpj=5009408)
+pid_max: default: 32768 minimum: 301
+Mount-cache hash table entries: 512
+devtmpfs: initialized
+regulator-dummy: no parameters
+NET: Registered protocol family 16
+bio: create slab <bio-0> at 0
+jz-dma jz-dma: JZ SoC DMA initialized
+usbcore: registered new interface driver usbfs
+usbcore: registered new interface driver hub
+usbcore: registered new device driver usb
+ (null): set:249  hold:250 dev=100000000 h=500 l=500
+cfg80211: Calling CRDA to update world regulatory domain
+Switching to clocksource jz_clocksource
+jz-dwc2 jz-dwc2: cgu clk gate get error
+DWC IN OTG MODE
+dwc2 dwc2: Keep PHY ON
+dwc2 dwc2: Using Buffer DMA mode
+dwc2 dwc2: Core Release: 3.00a
+dwc2 dwc2: DesignWare USB2.0 High-Speed Host Controller
+dwc2 dwc2: new USB bus registered, assigned bus number 1
+hub 1-0:1.0: USB hub found
+hub 1-0:1.0: 1 port detected
+dwc2 dwc2: DWC2 Host Initialized
+dwc2 dwc2: enter dwc2_gadget_plug_change:2588: plugin = 1 pullup_on = 0 suspend = 0
+NET: Registered protocol family 2
+TCP established hash table entries: 512 (order: 0, 4096 bytes)
+TCP bind hash table entries: 512 (order: -1, 2048 bytes)
+TCP: Hash tables configured (established 512 bind 512)
+TCP: reno registered
+UDP hash table entries: 256 (order: 0, 4096 bytes)
+UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+NET: Registered protocol family 1
+RPC: Registered named UNIX socket transport module.
+RPC: Registered udp transport module.
+RPC: Registered tcp transport module.
+RPC: Registered tcp NFSv4.1 backchannel transport module.
+freq_udelay_jiffys[0].max_num = 10
+cpufreq         udelay  loops_per_jiffy
+12000    59635   59635
+24000    119271  119271
+60000    298179  298179
+120000   596358  596358
+200000   993930  993930
+300000   1490895         1490895
+600000   2981790         2981790
+792000   3935963         3935963
+1008000  5009408         5009408
+1200000  5963580         5963580
+squashfs: version 4.0 (2009/01/31) Phillip Lougher
+jffs2: version 2.2. © 2001-2006 Red Hat, Inc.
+msgmni has been set to 53
+io scheduler noop registered
+io scheduler cfq registered (default)
+jz-uart.1: ttyS1 at MMIO 0x10031000 (irq = 58) is a uart1
+dwc2 dwc2: ID PIN CHANGED!
+console [ttyS1] enabled
+logger: created 256K log 'log_main'
+jz TCU driver register completed
+wait stable.[289][cgu_ssi]
+the id code = 5e4018, the flash name is ZB25VQ128
+JZ SFC Controller for SFC channel 0 driver register
+7 cmdlinepart partitions found on MTD device jz_sfc
+Creating 7 MTD partitions on "jz_sfc":
+0x000000000000-0x000000040000 : "boot"
+0x000000040000-0x000000050000 : "env"
+0x000000050000-0x0000001b0000 : "kernel"
+0x0000001b0000-0x000000790000 : "rootfs"
+0x000000790000-0x000001000000 : "rootfs_data"
+0x000000050000-0x000001000000 : "upgrade"
+0x000000000000-0x000001000000 : "all"
+SPI NOR MTD LOAD OK
+usbcore: registered new interface driver asix
+usbcore: registered new interface driver cdc_ether
+i2c /dev entries driver
+jz-wdt: watchdog initialized
+TCP: cubic registered
+NET: Registered protocol family 10
+NET: Registered protocol family 17
+input: gpio-keys as /devices/platform/gpio-keys/input/input0
+VFS: Mounted root (squashfs filesystem) readonly on device 31:3.
+devtmpfs: mounted
+Freeing unused kernel memory: 232K (80406000 - 80440000)
+jffs2: notice: (398) jffs2_build_xattr_subsystem: complete building xattr subsystem, 1 of xdatum (0 unchecked, 1 orphan) and 1 of xref (0 dead, 1 orphan) found.
+Starting watchdog: OK
+Starting ledd: OK
+
+Press the [f] key to enter failsafe mode
+
+Thingino xiaomi_mjsxj03hl_t31n_jxq03 [master+5b3e29c, 2024-10-18 17:50:39 -0400]
+
+Starting seedrng: OK
+Starting syslogd: OK
+Starting timezone: Timezone is not set
+Starting datetime: Set time to Sun Oct 13 17:27:30 GMT 2024 (fail-safe)
+Starting sysctl: OK
+Starting environment: OK
+Starting hostname: OK
+Starting gpio: OK
+Starting led: OK
+Starting usb: GPIO power is not set
+Starting ircut: OK
+Starting mmc: OK
+Starting modules: OK
+Starting thingino-button: OK
+Starting mdev: OK
+Starting rootauthkeys: No root authorized keys to restore
+Starting rootpassword: No backup of root password found
+Starting sshkeys: OK
+Starting wireless: OK
+Starting wpa_supplicant: WiFi credentials missing
+Starting network: OK
+Starting ifplugd for eth0: OK
+Starting portal: OK
+Starting wireguard: Disabled
+Starting ntpd: OK
+Starting crond: OK
+Starting dropbear: OK
+Starting httpd: OK
+Starting mdnsd: OK
+Starting mosquitto: OK
+Starting telegrambot: OK
+Starting rc.local: OK
+Starting prudynt: Streamer disabled
+Starting iad: OK
+Starting impconfig: Streamer disabled
+Starting ONVIF discovery: Disabled
+Starting openRTSP: Disabled
+Starting onvif_notify_server: Streamer disabled
+Starting sysupgrade: OK
+Starting envbackup: No changes
+Stopping ledd: OK
+
+Welcome to Thingino firmware!
