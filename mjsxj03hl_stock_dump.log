@@ -1,0 +1,107 @@
+isvp_t31
+isvp_t31# mmc rescan
+isvp_t31# mmc dev 0
+mmc0(part 0) is current device
+isvp_t31# mmc erase 0x10 0x8000
+
+MMC erase: dev # 0, block # 16, count 32768 ... 32768 blocks erase: OK
+isvp_t31# mw.b 0x80600000 ff 0x1000000
+isvp_t31# sf probe 0
+the manufacturer 5e
+SF: Detected ZB25VQ128
+
+--->probe spend 4 ms
+isvp_t31# sf read 0x80600000 0x0 0x1000000
+SF: 16777216 bytes @ 0x0 Read: OK
+--->read spend 5372 ms
+isvp_t31# mmc write 0x80600000 0x10 0x8000
+
+MMC write: dev # 0, block # 16, count 32768 ... 32768 blocks write: OK
+
+
+
+star@fedora:~1$ sudo dd bs=512 skip=16 count=32768 if=/dev/sda of=./mjsxj03hl.20241020.fulldump.bin
+[sudo] password for star:
+32768+0 records in
+32768+0 records out
+16777216 bytes (17 MB, 16 MiB) copied, 0.213401 s, 78.6 MB/s
+star@fedora:~$ sha1sum mjsxj03hl.*.bin
+6cf940b1c44213450e62fa7bec2307fd803db30a  mjsxj03hl.20241020.fulldump.bin
+star@fedora:~$ binwalk mjsxj03hl.20241020.fulldump.bin
+
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+208236        0x32D6C         CRC32 polynomial table, little endian
+212616        0x33E88         LZO compressed data
+216084        0x34C14         Android bootimg, kernel size: 0 bytes, kernel addr: 0x70657250, ramdisk size: 543519329 bytes, ramdisk addr: 0x6E72656B, product name: "mem boot start"
+262144        0x40000         uImage header, header size: 64 bytes, header CRC: 0x58AB0988, created: 2021-07-11 18:42:35, image size: 1590203 bytes, Data Address: 0x80010000, Entry Point: 0x80367840, data CRC: 0xB7D95A14, OS: Linux, CPU: MIPS, image type: OS Kernel Image, compression type: lzma, image name: "Linux-3.10.14__isvp_swan_1.0__"
+262208        0x40040         LZMA compressed data, properties: 0x5D, dictionary size: 67108864 bytes, uncompressed size: -1 bytes
+2293760       0x230000        Squashfs filesystem, little endian, version 4.0, compression:xz, size: 3976376 bytes, 433 inodes, blocksize: 131072 bytes, created: 2021-10-04 01:08:36
+6291456       0x600000        Squashfs filesystem, little endian, version 4.0, compression:xz, size: 3865206 bytes, 107 inodes, blocksize: 131072 bytes, created: 2021-10-04 01:08:36
+10289152      0x9D0000        Squashfs filesystem, little endian, version 4.0, compression:xz, size: 1038613 bytes, 3 inodes, blocksize: 131072 bytes, created: 2021-10-04 01:08:37
+12320768      0xBC0000        Squashfs filesystem, little endian, version 4.0, compression:xz, size: 162 bytes, 1 inodes, blocksize: 131072 bytes, created: 2021-10-04 01:08:37
+16318464      0xF90000        JFFS2 filesystem, little endian
+16318600      0xF90088        Zlib compressed data, compressed
+16318844      0xF9017C        JFFS2 filesystem, little endian
+16385856      0xFA0740        Zlib compressed data, compressed
+16386248      0xFA08C8        Zlib compressed data, compressed
+16387176      0xFA0C68        Zlib compressed data, compressed
+16387308      0xFA0CEC        JFFS2 filesystem, little endian
+16387744      0xFA0EA0        Zlib compressed data, compressed
+16388152      0xFA1038        Zlib compressed data, compressed
+16388580      0xFA11E4        Zlib compressed data, compressed
+16389008      0xFA1390        Zlib compressed data, compressed
+16389436      0xFA153C        Zlib compressed data, compressed
+16389864      0xFA16E8        Zlib compressed data, compressed
+16390292      0xFA1894        Zlib compressed data, compressed
+16390720      0xFA1A40        Zlib compressed data, compressed
+16391148      0xFA1BEC        Zlib compressed data, compressed
+16391576      0xFA1D98        Zlib compressed data, compressed
+16392004      0xFA1F44        Zlib compressed data, compressed
+16392432      0xFA20F0        Zlib compressed data, compressed
+16392860      0xFA229C        Zlib compressed data, compressed
+16393288      0xFA2448        Zlib compressed data, compressed
+16393716      0xFA25F4        Zlib compressed data, compressed
+16394144      0xFA27A0        Zlib compressed data, compressed
+16394572      0xFA294C        Zlib compressed data, compressed
+16395000      0xFA2AF8        Zlib compressed data, compressed
+16395428      0xFA2CA4        Zlib compressed data, compressed
+16395856      0xFA2E50        Zlib compressed data, compressed
+16396284      0xFA2FFC        Zlib compressed data, compressed
+16396712      0xFA31A8        Zlib compressed data, compressed
+16397140      0xFA3354        Zlib compressed data, compressed
+16397568      0xFA3500        Zlib compressed data, compressed
+16397996      0xFA36AC        Zlib compressed data, compressed
+16398424      0xFA3858        Zlib compressed data, compressed
+16398852      0xFA3A04        Zlib compressed data, compressed
+16399280      0xFA3BB0        Zlib compressed data, compressed
+16399708      0xFA3D5C        Zlib compressed data, compressed
+16400136      0xFA3F08        Zlib compressed data, compressed
+16400564      0xFA40B4        Zlib compressed data, compressed
+16400992      0xFA4260        Zlib compressed data, compressed
+16401420      0xFA440C        Zlib compressed data, compressed
+16401848      0xFA45B8        Zlib compressed data, compressed
+16402276      0xFA4764        Zlib compressed data, compressed
+16402704      0xFA4910        Zlib compressed data, compressed
+16403132      0xFA4ABC        Zlib compressed data, compressed
+16403560      0xFA4C68        Zlib compressed data, compressed
+16403988      0xFA4E14        Zlib compressed data, compressed
+16404416      0xFA4FC0        Zlib compressed data, compressed
+16404844      0xFA516C        Zlib compressed data, compressed
+16405272      0xFA5318        Zlib compressed data, compressed
+16405700      0xFA54C4        Zlib compressed data, compressed
+16406128      0xFA5670        Zlib compressed data, compressed
+16406556      0xFA581C        Zlib compressed data, compressed
+16406984      0xFA59C8        Zlib compressed data, compressed
+16407412      0xFA5B74        Zlib compressed data, compressed
+16407840      0xFA5D20        Zlib compressed data, compressed
+16408268      0xFA5ECC        Zlib compressed data, compressed
+16408696      0xFA6078        Zlib compressed data, compressed
+16409124      0xFA6224        Zlib compressed data, compressed
+16409552      0xFA63D0        Zlib compressed data, compressed
+16409980      0xFA657C        Zlib compressed data, compressed
+16410820      0xFA68C4        Zlib compressed data, compressed
+16411248      0xFA6A70        Zlib compressed data, compressed
+16411820      0xFA6CAC        JFFS2 filesystem, little endian
+16413284      0xFA7264        JFFS2 filesystem, little endian
+
